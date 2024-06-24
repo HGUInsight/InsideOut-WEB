@@ -1,7 +1,10 @@
 import React from "react";
 import InformationCard from "../components/InformationCard";
+import ChartArea from "../components/Chart/ChartArea";
+import ChartPie from "../components/Chart/ChartPie";
+import Card from "../components/Chart/Card";
 
-function Dashboard() {
+function Homepage() {
   return (
     <div className="container-fluid">
       {/* 페이지 제목 */}
@@ -32,8 +35,26 @@ function Dashboard() {
           icon="fa-comments"
         />
       </div>
+      {/* 차트들 */}
+      <p className="mb-4">전체 지수 </p>
+      <div className="row">
+        <div className="col-xl-8 col-lg-7">
+          <Card title="평균 멘탈지수 증가율">
+            <div className="chart-area">
+              <ChartArea />
+            </div>
+          </Card>
+        </div>
+        <div className="col-xl-4 col-lg-5">
+          <Card title="일일리스트 완수율">
+            <div className="chart-pie pt-4">
+              <ChartPie />
+            </div>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default Dashboard;
+export default Homepage;

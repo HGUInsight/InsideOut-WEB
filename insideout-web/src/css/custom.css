@@ -1,0 +1,33 @@
+/* src/css/custom.css */
+.sidebar-bottom-items {
+    margin-top: auto;
+    padding-bottom: 1rem;
+  }
+
+/* 포커스 상태에서 회색 네모선을 제거 */
+.nav-link:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+/* 활성화 상태에서 회색 네모선을 제거 */
+.nav-link.active {
+    outline: none;
+    box-shadow: none;
+  }
+
+/* form-select 스타일 지정 (선택 사항) */
+.form-select {
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+.no-arrow::after {
+  display: none !important; /* 기본 토글 화살표 제거 */
+}
+
+  
+  
