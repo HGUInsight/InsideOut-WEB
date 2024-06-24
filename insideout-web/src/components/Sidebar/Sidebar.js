@@ -1,6 +1,6 @@
-// src/components/Sidebar.js
 import React from "react";
 import { Link } from "react-router-dom";
+import SidebarHeading from "./SidebarHeading";
 
 function Sidebar() {
   return (
@@ -28,28 +28,40 @@ function Sidebar() {
           <span>Home</span>
         </Link>
       </li>
+
       <hr className="sidebar-divider" />
-      <div className="sidebar-heading">생활관</div>
+      <SidebarHeading text="목록" />
+      {/* 생활관 리스트 */}
       <li className="nav-item">
-        <Link className="nav-link" to="/charts">
-          <i className="fas fa-fw fa-chart-area" />
-          <span>Charts</span>
+        <Link className="nav-link collapsed btn btn-link" to="/dorm">
+          <i className="fas fa-fw fa-building" />
+          <span>생활관</span>
         </Link>
       </li>
+      {/* 투두 리스트 */}
       <li className="nav-item">
-        <Link className="nav-link" to="/tables">
-          <i className="fas fa-fw fa-table" />
-          <span>Tables</span>
+        <Link className="nav-link collapsed btn btn-link" to="/todolist">
+          <i className="fas fa-fw fa-tasks" />
+          <span>투두리스트</span>
         </Link>
       </li>
+
       <hr className="sidebar-divider d-none d-md-block" />
-      <div className="text-center d-none d-md-inline">
-        <button
-          className="rounded-circle border-0"
-          id="sidebarToggle"
-          type="button"
-          aria-label="Toggle Sidebar"
-        />
+
+      {/* 아래부분 */}
+      <div className="sidebar-bottom-items">
+        <li className="nav-item">
+          <Link className="nav-link" to="/setting">
+            <i className="fas fa-fw fa-user-circle" />
+            <span>계정관리</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/logout">
+            <i className="fas fa-fw fa-sign-out-alt" />
+            <span>로그아웃</span>
+          </Link>
+        </li>
       </div>
     </ul>
   );
