@@ -24,10 +24,34 @@
   border: 1px solid #ccc;
 }
 
-
+/* src/css/custom.css */
 .no-arrow::after {
   display: none !important; /* 기본 토글 화살표 제거 */
 }
+
+#dropdown-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filter-badge {
+  background-color: #4E73DE; 
+  color: white; 
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
 
   
   
