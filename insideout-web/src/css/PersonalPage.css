@@ -1,0 +1,87 @@
+.container-fluid.personal-page {
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.tabs button:hover {
+  color: #495057;
+}
+
+.tabs button.active {
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+  border-radius: 0;
+}
+
+.tab-content {
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  background-color: #fff;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.card-header {
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.tab-content.card {
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  background-color: #fff;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  margin-bottom: 20px; /* To provide spacing for the button */
+}
+
+.card-footer {
+  padding: 1rem;
+  border-top: 1px solid #e3e6f0;
+  background-color: #f8f9fc;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0.35rem;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}

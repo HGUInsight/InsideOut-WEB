@@ -6,8 +6,13 @@ import Topbar from "./components/Topbar";
 import Homepage from "./pages/Homepage";
 import SettingPage from "./pages/SettingPage";
 import TodolistPage from "./pages/TodolistPage";
+import TodoDetailPage from "./pages/TodoDetailPage";
 import DormPage from "./pages/DormPage";
+import PersonalPage from "./pages/PersonalPage";
 import "./css/custom.css";
+import "./css/DormGrape.css";
+import "./css/PersonalPage.css";
+import "./css/BasicInfo.css";
 import "./css/sb-admin-2.min.css";
 
 function App() {
@@ -23,6 +28,8 @@ function App() {
               <Route path="/dorm" element={<DormPage />} />
               <Route path="/todolist" element={<TodolistPage />} />
               <Route path="/setting" element={<SettingPage />} />
+              <Route path="/personal/:id" element={<PersonalPage />} />
+              <Route path="/todo/:id" element={<TodoDetailPage />} />
             </Routes>
           </div>
         </div>

@@ -1,0 +1,22 @@
+.recent-score {
+    text-align: center;
+    margin-bottom: 30px; /* 간격을 더 두기 위해 값 증가 */
+  }
+  
+  .recent-score h3 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .recent-score p {
+    font-size: 16px;
+    color: #6c757d;
+  }
+  
+  .chart-area {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+  }
+  

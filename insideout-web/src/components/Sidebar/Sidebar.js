@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SidebarHeading from "./SidebarHeading";
 
 function Sidebar() {
   return (
@@ -30,7 +29,8 @@ function Sidebar() {
       </li>
 
       <hr className="sidebar-divider" />
-      <SidebarHeading text="목록" />
+      <div className="sidebar-heading">목록</div>
+
       {/* 생활관 리스트 */}
       <li className="nav-item">
         <Link className="nav-link collapsed btn btn-link" to="/dorm">
