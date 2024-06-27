@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import PropTypes from "prop-types";
-import { Button } from "react-bootstrap";
+import { Button, Dropdown, DropdownButton } from "react-bootstrap";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import "../../css/TodolistPage.css";
@@ -57,12 +57,23 @@ const getColumns = (handleDelete) => [
 
 function TodolistGrape({ data, handleDelete, filterText, setFilterText }) {
   const navigate = useNavigate();
+  const [selectedKeyword, setSelectedKeyword] = useState("");
 
   const handleRowClick = (row) => {
     navigate(`/todo/${row.id}`);
   };
 
   const columns = React.useMemo(() => getColumns(handleDelete), [handleDelete]);
+
+  const keywords = ["긍정적사고", "공동체", "자기계발", "운동", "건강관리"];
+
+  const filteredData = data
+    .filter((item) =>
+      item.content.toLowerCase().includes(filterText.toLowerCase()),
+    )
+    .filter(
+      (item) => selectedKeyword === "" || item.keywordName === selectedKeyword,
+    );
 
   return (
     <div className="tdp-container">
@@ -76,6 +87,23 @@ function TodolistGrape({ data, handleDelete, filterText, setFilterText }) {
             onChange={(e) => setFilterText(e.target.value)}
             className="form-control"
           />
+          <DropdownButton
+            id="dropdown-basic-button"
+            title="Filter by keyword"
+            className="ml-2"
+          >
+            <Dropdown.Item onClick={() => setSelectedKeyword("")}>
+              All
+            </Dropdown.Item>
+            {keywords.map((keyword) => (
+              <Dropdown.Item
+                key={keyword}
+                onClick={() => setSelectedKeyword(keyword)}
+              >
+                {keyword}
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
           <Button variant="link" className="p-0">
             <IoAddCircleOutline size={24} color="#4E73DE" />
           </Button>
@@ -84,9 +112,7 @@ function TodolistGrape({ data, handleDelete, filterText, setFilterText }) {
       <div className="tdp-content">
         <DataTable
           columns={columns}
-          data={data.filter((item) =>
-            item.content.toLowerCase().includes(filterText.toLowerCase()),
-          )}
+          data={filteredData}
           pagination
           persistTableHead
           onRowClicked={handleRowClick}
