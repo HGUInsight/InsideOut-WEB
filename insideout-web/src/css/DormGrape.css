@@ -1,13 +1,39 @@
 .grape-container {
+  margin-bottom: 3rem;
   background-color: #fff;
-  border-radius: 0.35rem;
   box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
 }
-.grape-header{
+.dp-column {
+  display: flex;
+  flex-direction: column; /* 요소들을 세로로 정렬 */
+}
+
+.grape-header {
   padding: 1rem;
+  padding-bottom: 0.21rem;
   background-color: #f8f9fc;
   border-bottom: 1px solid #e3e6f0;
+  display: flex;
+  flex-direction: column; /* 요소들을 세로로 배치 */
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* 전체 너비 사용 */
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+}
+
+.badge-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
 
 .grape-title {
   font-size: 1.25rem;
@@ -23,6 +49,7 @@
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #e3e6f0;
+  text-align: center!important; /* 중앙 정렬 */
 }
 
 .data-table-row:hover {
@@ -34,12 +61,14 @@
   width: 100%;
   margin-bottom: 1rem;
   color: #858796;
+  text-align: center!important;
 }
 
 .table th, .table td {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #e3e6f0;
+  text-align: center!important; /* 중앙 정렬 */
 }
 
 .table thead th {
@@ -60,6 +89,33 @@
   background-color: #cdd8f6;
 }
 
+.small-button {
+  padding: 0.25rem 0.5rem !important; /* 버튼 패딩 조정 */
+  font-size: 0.875rem !important; /* 버튼 폰트 크기 조정 */
+  line-height: 1.5 !important;
+  border-radius: 0.2rem !important;
+  height: 2rem !important; /* 버튼 높이 조정 */
+  width: 2rem !important; /* 버튼 너비 조정 */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 2rem !important; /* 버튼 최소 너비 */
+}
+
+.small-dropdown-button .dropdown-toggle {
+  padding: 0.25rem 0.5rem !important; /* 버튼 패딩 조정 */
+  font-size: 0.875rem !important; /* 버튼 폰트 크기 조정 */
+  line-height: 1.5 !important;
+  border-radius: 0.2rem !important;
+  height: 2rem !important; /* 버튼 높이 조정 */
+  width: 2rem !important; /* 버튼 너비 조정 */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 2rem !important; /* 버튼 최소 너비 */
+}
+
+
 .badge {
   display: inline-block;
   padding: 0.35em 0.65em;
@@ -69,6 +125,13 @@
   background-color: #4e73df;
   border-radius: 0.35rem;
 }
+
+.custom-badge {
+  border-radius: 12px !important; /* 동글동글하게 만들기 */
+  font-weight: normal !important; /* 글씨를 bold에서 일반으로 변경 */
+  padding: 0.5em 0.75em !important; /* 배지의 패딩 조정 */
+}
+
 
 .form-control {
   display: block;
@@ -88,4 +151,11 @@
   border-color: #bac8f3;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.btn-sm-custom {
+  padding: 0.25rem 0.5rem !important; /* 버튼 패딩 조정 */
+  font-size: 0.875rem !important; /* 버튼 폰트 크기 조정 */
+  line-height: 1.5 !important;
+  border-radius: 0.2rem !important;
 }

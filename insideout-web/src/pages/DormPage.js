@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DormGrape from "../components/Grape/DormGrape"; // Import DormGrape
 import userData from "../dummyData/users"; // Import user data
 import AddRecordModal from "../components/AddRecordModal";
-import "../css/custom.css"; // custom CSS 파일 import
 
 function DormPage() {
   const [data, setData] = useState(userData);
