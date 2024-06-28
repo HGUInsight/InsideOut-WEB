@@ -1,16 +1,31 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Chart, ArcElement } from "chart.js";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Title,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
 
-Chart.register(ArcElement);
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  Title,
+  CategoryScale,
+  LinearScale,
+);
 
 function ChartPie({ data }) {
   const options = {
     maintainAspectRatio: false,
     plugins: {
       tooltip: {
-        backgroundColor: "rgb(255,255,255)",
-        bodyColor: "#858796",
+        backgroundColor: "#000000",
+        bodyFontColor: "#ffffff",
         borderColor: "#dddfeb",
         borderWidth: 1,
         padding: 15,
@@ -18,14 +33,22 @@ function ChartPie({ data }) {
         caretPadding: 10,
       },
       legend: {
-        display: false,
+        display: true,
+        position: "bottom",
+        labels: {
+          fontColor: "#858796",
+          padding: 20,
+        },
       },
     },
-    cutout: "80%",
+    cutout: "75%",
   };
 
   return (
-    <div className="chart-pie">
+    <div
+      className="chart-pie"
+      style={{ position: "relative", height: "300px", marginBottom: "20px" }}
+    >
       <Doughnut data={data} options={options} />
     </div>
   );

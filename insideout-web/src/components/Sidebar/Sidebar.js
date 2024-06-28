@@ -17,7 +17,7 @@ function Sidebar() {
         <div className="sidebar-brand-text mx-3">
           Inside-out
           <br />
-          <sup>관리자용 페이지</sup>
+          <sup className="non-bold">관리자용 페이지</sup>
         </div>
       </a>
       <hr className="sidebar-divider my-0" />

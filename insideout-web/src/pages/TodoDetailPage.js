@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import toDoListData from "../dummyData/dummy_todo";
-import ConfirmationModal from "../components/ConfirmationModal";
+import ConfirmationModal from "../components/Modal/ConfirmationModal";
 import "../css/PersonalPage.css"; // Use PersonalPage.css for styling
 
 function TodoDetailPage() {

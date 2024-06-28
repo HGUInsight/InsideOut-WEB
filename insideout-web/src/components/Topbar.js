@@ -1,6 +1,43 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function Topbar() {
+  const [alertsOpen, setAlertsOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
+  const alertsDropdownRef = useRef(null);
+  const userDropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        alertsDropdownRef.current &&
+        !alertsDropdownRef.current.contains(event.target)
+      ) {
+        setAlertsOpen(false);
+      }
+      if (
+        userDropdownRef.current &&
+        !userDropdownRef.current.contains(event.target)
+      ) {
+        setUserOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [alertsDropdownRef, userDropdownRef]);
+
+  const handleDropdownClick = (e, dropdownType) => {
+    e.preventDefault();
+    if (dropdownType === "alerts") {
+      setAlertsOpen(!alertsOpen);
+    } else if (dropdownType === "user") {
+      setUserOpen(!userOpen);
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <button
@@ -42,6 +79,7 @@ function Topbar() {
             aria-haspopup="true"
             aria-expanded="false"
             aria-label="Search dropdown"
+            onClick={(e) => handleDropdownClick(e, "search")}
           >
             <i className="fas fa-search fa-fw" />
           </a>
@@ -79,13 +117,15 @@ function Topbar() {
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
-            aria-expanded="false"
+            aria-expanded={alertsOpen}
+            onClick={(e) => handleDropdownClick(e, "alerts")}
           >
             <i className="fas fa-bell fa-fw" />
             <span className="badge badge-danger badge-counter">3+</span>
           </a>
           <div
-            className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            ref={alertsDropdownRef}
+            className={`dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in ${alertsOpen ? "show" : ""}`}
             aria-labelledby="alertsDropdown"
           >
             <h6 className="dropdown-header">Alerts Center</h6>
@@ -96,21 +136,10 @@ function Topbar() {
                 </div>
               </div>
               <div>
-                <div className="small text-gray-500">December 12, 2019</div>
+                <div className="small text-gray-500">2024년 6월 28일</div>
                 <span className="font-weight-bold">
-                  A new monthly report is ready to download!
+                  새로운 입주자가 있습니다. 확인해보세요.
                 </span>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="/">
-              <div className="mr-3">
-                <div className="icon-circle bg-success">
-                  <i className="fas fa-donate text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 7, 2019</div>
-                $290.29 has been deposited into your account!
               </div>
             </a>
             <a className="dropdown-item d-flex align-items-center" href="/">
@@ -120,9 +149,8 @@ function Topbar() {
                 </div>
               </div>
               <div>
-                <div className="small text-gray-500">December 2, 2019</div>
-                Spending Alert: We&apos;ve noticed unusually high spending for
-                your account.
+                <div className="small text-gray-500">2024년 6월 28일</div>
+                멘탈지수가 떨어지고 있는 사람이 있습니다. 확인해보세요.
               </div>
             </a>
             <a
@@ -142,10 +170,11 @@ function Topbar() {
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
-            aria-expanded="false"
+            aria-expanded={userOpen}
+            onClick={(e) => handleDropdownClick(e, "user")}
           >
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              Douglas McGee
+              홍길동 님
             </span>
             <img
               className="img-profile rounded-circle"
@@ -154,7 +183,8 @@ function Topbar() {
             />
           </a>
           <div
-            className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            ref={userDropdownRef}
+            className={`dropdown-menu dropdown-menu-right shadow animated--grow-in ${userOpen ? "show" : ""}`}
             aria-labelledby="userDropdown"
           >
             <a className="dropdown-item" href="/">

@@ -50,7 +50,7 @@ function Todolist({ userId = 1 }) {
   useEffect(() => {
     const calendar = [];
     for (let i = 1; i <= 31; i += 1) {
-      const date = new Date(2024, 4, i).getTime();
+      const date = new Date(2024, 5, i).getTime(); // 6월로 수정
       const dateString = formatDate(date);
       const mentalTestList = toDoListByMentalTest.filter(
         (item) => formatDate(item.day) === dateString && item.userId === userId,

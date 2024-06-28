@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import userData from "../../dummyData/users";
-import ConfirmationModal from "../ConfirmationModal";
+import ConfirmationModal from "../Modal/ConfirmationModal";
 import "../../css/BasicInfo.css"; // Ensure this is imported
 
 function BasicInfo({ selectedUserId }) {

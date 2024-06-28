@@ -141,7 +141,9 @@ function Homepage() {
   });
 
   const pieChartData = {
-    labels: Object.keys(dormAverageCompletionRates),
+    labels: Object.keys(dormAverageCompletionRates).map(
+      (dorm, index) => `생활관${index + 1}`,
+    ),
     datasets: [
       {
         data: Object.values(dormAverageCompletionRates),
@@ -186,17 +188,17 @@ function Homepage() {
       </div>
 
       {/* 차트들 */}
-      <div className="row">
+      <div className="row" style={{ marginTop: "20px" }}>
         <div className="col-xl-8 col-lg-7">
           <Card title="평균 멘탈지수 증가율">
-            <div className="chart-area">
+            <div className="chart-area" style={{ marginBottom: "20px" }}>
               <ChartArea data={chartData} />
             </div>
           </Card>
         </div>
         <div className="col-xl-4 col-lg-5">
           <Card title="일일리스트 완수율">
-            <div className="chart-pie pt-4">
+            <div className="chart-pie pt-4" style={{ marginBottom: "20px" }}>
               <ChartPie data={pieChartData} />
             </div>
           </Card>
